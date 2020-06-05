@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
     # assign restaurant to review
     @review.restaurant = @restaurant
     if @review.save
-      redirect_to @restaurant
+      redirect_to restaurant_path(@restaurant, anchor: "review-#{@review.id}")
     else
       render 'restaurants/show'
     end
